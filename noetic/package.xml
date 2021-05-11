@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+
+<!-- A package.xml in the root of a cmake projects allows it to be built using catkin (the ROS1 build system) -->
+
+<package format="2">
+  <name>paho-mqtt-c</name>
+  <version>:{version}</version>
+  <description>Eclipse Paho C Client Library for the MQTT Protocol</description>
+
+  <maintainer email="paho-success@eclipse.org"></maintainer>
+  <license>Eclipse Public License - v 2.0</license>
+
+  <buildtool_depend>cmake</buildtool_depend>
+  <depend>libssl-dev</depend>
+  <exec_depend>catkin</exec_depend>
+
+  <export>
+    <build_type>cmake</build_type>
+  </export>
+</package>
