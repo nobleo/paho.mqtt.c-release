@@ -1,0 +1,25 @@
+From f27b8159df8fd58d39d288a979e54b8fbac7c7d7 Mon Sep 17 00:00:00 2001
+From: Tim Clephas <tim.clephas@nobleo.nl>
+Date: Tue, 11 May 2021 10:37:54 +0200
+Subject: [PATCH 2/2] Install package.xml
+
+---
+ CMakeLists.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 4da3f77..b5eae5b 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -104,6 +104,8 @@ SET(CPACK_PACKAGE_VERSION_MINOR ${PAHO_VERSION_MINOR})
+ SET(CPACK_PACKAGE_VERSION_PATCH ${PAHO_VERSION_PATCH})
+ INCLUDE(CPack)
+ 
++INSTALL(FILES "${CMAKE_CURRENT_SOURCE_DIR}/package.xml" DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/${PROJECT_NAME})
++
+ IF(PAHO_ENABLE_TESTING)
+     ENABLE_TESTING()
+     INCLUDE_DIRECTORIES(test src)
+-- 
+2.25.1
+
