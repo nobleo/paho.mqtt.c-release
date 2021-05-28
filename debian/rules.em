@@ -25,7 +25,7 @@ endif
 export DEB_HOST_MULTIARCH := $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 
 # Build with ssl
-DEB_CXXFLAGS_MAINT_APPEND += -DPAHO_WITH_SSL=ON
+DEB_CXXFLAGS_MAINT_APPEND += -DPAHO_WITH_SSL=ON -PAHO_ENABLE_TESTING=OFF
 
 DEB_HOST_GNU_TYPE ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
 
