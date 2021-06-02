@@ -1,22 +1,22 @@
-From 34f23c08c5be90f88c59c7ee0a5248c039ca11e5 Mon Sep 17 00:00:00 2001
+From 7596e53637cef5f37dac533ae1248ee41f885340 Mon Sep 17 00:00:00 2001
 From: Tim Clephas <tim.clephas@nobleo.nl>
-Date: Fri, 28 May 2021 16:03:32 +0200
-Subject: [PATCH 3/5] Disable testing as it depends on network connections
+Date: Wed, 2 Jun 2021 09:16:23 +0200
+Subject: [PATCH 5/5] They are C flags for the c package
 
 ---
  debian/rules.em | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/debian/rules.em b/debian/rules.em
-index 11efbd2..820a3bc 100755
+index d988856..17369a2 100755
 --- a/debian/rules.em
 +++ b/debian/rules.em
 @@ -22,7 +22,7 @@ export DEB_CXXFLAGS_MAINT_APPEND=-DNDEBUG
  export DEB_HOST_MULTIARCH := $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
  
  # Build with ssl
--DEB_CXXFLAGS_MAINT_APPEND += -DPAHO_WITH_SSL=ON
-+DEB_CXXFLAGS_MAINT_APPEND += -DPAHO_WITH_SSL=ON -PAHO_ENABLE_TESTING=OFF
+-DEB_CXXFLAGS_MAINT_APPEND += -DPAHO_WITH_SSL=ON -DPAHO_ENABLE_TESTING=OFF
++export DEB_CFLAGS_MAINT_APPEND = -DPAHO_WITH_SSL=ON -DPAHO_ENABLE_TESTING=OFF
  
  %:
  	dh $@@ -v --buildsystem=cmake

@@ -1,7 +1,7 @@
-From 57285ed8311c129ee459857eafc53bf4d0b0798a Mon Sep 17 00:00:00 2001
+From 0b9ef525485aa814abaa4a87efcbc5f5a61682ad Mon Sep 17 00:00:00 2001
 From: Tim Clephas <tim.clephas@nobleo.nl>
 Date: Tue, 11 May 2021 10:37:54 +0200
-Subject: [PATCH 2/4] Install package.xml
+Subject: [PATCH 2/5] Install package.xml
 
 ---
  CMakeLists.txt | 2 ++
