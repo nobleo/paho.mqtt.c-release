@@ -19,7 +19,7 @@ tracks:
     last_version: 1.3.8
     name: upstream
     patches: noetic
-    release_inc: '7'
+    release_inc: '8'
     release_repo_url: null
     release_tag: '"v:{version}"'
     ros_distro: noetic
