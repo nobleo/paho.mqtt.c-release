@@ -1,4 +1,4 @@
-From c97e459ed3593da042eb805ea763069fa17e48d1 Mon Sep 17 00:00:00 2001
+From 05c4b9aefec21a6bcb06194fafe1ebd73d7eae84 Mon Sep 17 00:00:00 2001
 From: Tim Clephas <tim.clephas@nobleo.nl>
 Date: Tue, 11 May 2021 10:37:54 +0200
 Subject: [PATCH 2/5] Install package.xml
@@ -8,7 +8,7 @@ Subject: [PATCH 2/5] Install package.xml
  1 file changed, 2 insertions(+)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 4da3f77..b5eae5b 100644
+index ff0a13a..7600916 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -104,6 +104,8 @@ SET(CPACK_PACKAGE_VERSION_MINOR ${PAHO_VERSION_MINOR})
