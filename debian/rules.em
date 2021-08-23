@@ -24,6 +24,9 @@ endif
 # Solve shlibdeps errors in REP136 packages that use GNUInstallDirs:
 export DEB_HOST_MULTIARCH := $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 
+# Build with ssl
+export DEB_CFLAGS_MAINT_APPEND = -DPAHO_WITH_SSL=ON -DPAHO_ENABLE_TESTING=OFF
+
 DEB_HOST_GNU_TYPE ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
 
 %:
@@ -36,8 +39,7 @@ override_dh_auto_configure:
 	if [ -f "@(InstallationPrefix)/setup.sh" ]; then . "@(InstallationPrefix)/setup.sh"; fi && \
 	dh_auto_configure -- \
 		-DCMAKE_INSTALL_PREFIX="@(InstallationPrefix)" \
-		-DCMAKE_PREFIX_PATH="@(InstallationPrefix)" \
-		$(BUILD_TESTING_ARG)
+		-DCMAKE_PREFIX_PATH="@(InstallationPrefix)"
 
 override_dh_auto_build:
 	# In case we're installing to a non-standard location, look for a setup.sh
