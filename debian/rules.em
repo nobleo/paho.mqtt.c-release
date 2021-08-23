@@ -24,6 +24,9 @@ endif
 # Solve shlibdeps errors in REP136 packages that use GNUInstallDirs:
 export DEB_HOST_MULTIARCH := $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 
+# Build with ssl
+export DEB_CFLAGS_MAINT_APPEND = -DPAHO_WITH_SSL=ON -DPAHO_ENABLE_TESTING=OFF
+
 DEB_HOST_GNU_TYPE ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
 
 %:
