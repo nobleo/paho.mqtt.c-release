@@ -1,3 +1,26 @@
+## paho-mqtt-c (noetic) - 1.3.9-1
+
+The packages in the `paho-mqtt-c` repository were released into the `noetic` distro by running `/usr/bin/bloom-release paho-mqtt-c --rosdistro noetic --edit` on `Mon, 23 Aug 2021 07:45:10 -0000`
+
+The `paho-mqtt-c` package was released.
+
+Version of package(s) in repository `paho-mqtt-c`:
+
+- upstream repository: https://github.com/eclipse/paho.mqtt.c.git
+- release repository: https://github.com/nobleo/paho.mqtt.c-release.git
+- rosdistro version: `1.3.8-8`
+- old version: `1.3.8-8`
+- new version: `1.3.9-1`
+
+Versions of tools used:
+
+- bloom version: `0.10.7`
+- catkin_pkg version: `0.4.23`
+- rosdep version: `0.21.0`
+- rosdistro version: `0.8.3`
+- vcstools version: `0.1.42`
+
+
 ## paho-mqtt-c (noetic) - 1.3.8-7
 
 The packages in the `paho-mqtt-c` repository were released into the `noetic` distro by running `/usr/bin/bloom-release --rosdistro noetic --track noetic paho-mqtt-c` on `Wed, 02 Jun 2021 07:22:27 -0000`
