@@ -1,7 +1,7 @@
-From 410bac6e11c6d93c6ec57ed6ced011d394b3d4e5 Mon Sep 17 00:00:00 2001
+From 66be9975d53a6e8a42132bb8632170b99bdbd73c Mon Sep 17 00:00:00 2001
 From: Tim Clephas <tim.clephas@nobleo.nl>
 Date: Tue, 24 Aug 2021 12:35:52 +0200
-Subject: [PATCH 2/2] Skip test by overriding function
+Subject: [PATCH 2/3] Skip test by overriding function
 
 ---
  debian/rules.em | 7 +------
