@@ -1,0 +1,30 @@
+From 410bac6e11c6d93c6ec57ed6ced011d394b3d4e5 Mon Sep 17 00:00:00 2001
+From: Tim Clephas <tim.clephas@nobleo.nl>
+Date: Tue, 24 Aug 2021 12:35:52 +0200
+Subject: [PATCH 2/2] Skip test by overriding function
+
+---
+ debian/rules.em | 7 +------
+ 1 file changed, 1 insertion(+), 6 deletions(-)
+
+diff --git a/debian/rules.em b/debian/rules.em
+index 17369a2..1aee4aa 100755
+--- a/debian/rules.em
++++ b/debian/rules.em
+@@ -44,12 +44,7 @@ override_dh_auto_build:
+ 	dh_auto_build
+ 
+ override_dh_auto_test:
+-	# In case we're installing to a non-standard location, look for a setup.sh
+-	# in the install tree and source it.  It will set things like
+-	# CMAKE_PREFIX_PATH, PKG_CONFIG_PATH, and PYTHONPATH.
+-	echo -- Running tests. Even if one of them fails the build is not canceled.
+-	if [ -f "@(InstallationPrefix)/setup.sh" ]; then . "@(InstallationPrefix)/setup.sh"; fi && \
+-	dh_auto_test || true
++	echo -- Skipping tests.
+ 
+ override_dh_shlibdeps:
+ 	# In case we're installing to a non-standard location, look for a setup.sh
+-- 
+2.25.1
+
