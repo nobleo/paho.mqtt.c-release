@@ -1,0 +1,12 @@
+Source: ros-foxy-paho-mqtt-c
+Section: misc
+Priority: optional
+Maintainer:  <paho-success@eclipse.org>
+Build-Depends: debhelper (>= 9.0.0), cmake, libssl-dev, ros-foxy-ros-workspace
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-foxy-paho-mqtt-c
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libssl-dev, ros-foxy-ros-workspace
+Description: Eclipse Paho C Client Library for the MQTT Protocol
