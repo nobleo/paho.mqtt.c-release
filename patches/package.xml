@@ -8,6 +8,7 @@
   <version>:{version}</version>
   <description>Eclipse Paho C Client Library for the MQTT Protocol</description>
 
+  <maintainer email="tim.clephas@nobleo.nl">Tim Clephas</maintainer> <!--ROS release-->
   <maintainer email="paho-success@eclipse.org"></maintainer>
   <license>Eclipse Public License 2.0</license>
 
