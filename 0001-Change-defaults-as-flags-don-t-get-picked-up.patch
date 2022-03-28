@@ -1,4 +1,4 @@
-From 5c65e2669a3527b810d3f416ab1d1a5fe8ccb2cf Mon Sep 17 00:00:00 2001
+From 2a8d1577d453b6f7ad211c9fb238cdcf9e99ef56 Mon Sep 17 00:00:00 2001
 From: Tim Clephas <tim.clephas@nobleo.nl>
 Date: Thu, 3 Jun 2021 11:19:17 +0200
 Subject: [PATCH] Change defaults as flags don't get picked up
@@ -8,10 +8,10 @@ Subject: [PATCH] Change defaults as flags don't get picked up
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 7bfee10..907861d 100644
+index cf0fd68..6d4009e 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -47,13 +47,13 @@ ELSEIF(${CMAKE_SYSTEM_NAME} STREQUAL "Darwin")
+@@ -43,13 +43,13 @@ ELSEIF(${CMAKE_SYSTEM_NAME} STREQUAL "Darwin")
  ENDIF()
  
  ## build options
@@ -25,8 +25,8 @@ index 7bfee10..907861d 100644
 -SET(PAHO_ENABLE_TESTING TRUE CACHE BOOL "Build tests and run")
 +SET(PAHO_ENABLE_TESTING FALSE CACHE BOOL "Build tests and run")
  SET(PAHO_ENABLE_CPACK TRUE CACHE BOOL "Enable CPack")
- 
- IF (NOT PAHO_BUILD_SHARED AND NOT PAHO_BUILD_STATIC)
+ SET(PAHO_HIGH_PERFORMANCE FALSE CACHE BOOL "Disable tracing and heap tracking")
+ SET(PAHO_USE_SELECT FALSE CACHE BOOL "Revert to select system call instead of poll")
 -- 
 2.25.1
 
