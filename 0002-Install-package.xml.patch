@@ -1,4 +1,4 @@
-From 9af3a7cd6e34cb47eb83eda1c2b39f5734d590d7 Mon Sep 17 00:00:00 2001
+From 52ad4505b2f28cfb059b0c0362529a9749be7034 Mon Sep 17 00:00:00 2001
 From: Tim Clephas <tim.clephas@nobleo.nl>
 Date: Tue, 11 May 2021 10:37:54 +0200
 Subject: [PATCH 2/5] Install package.xml
