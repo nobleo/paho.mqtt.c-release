@@ -1,4 +1,4 @@
-From 13555a01c3af96469dbf19530eb03bb475d2ce57 Mon Sep 17 00:00:00 2001
+From 77e0602f6060d86b76f7a6220d9480f04af90c9d Mon Sep 17 00:00:00 2001
 From: Tim Clephas <tim.clephas@nobleo.nl>
 Date: Fri, 28 May 2021 16:03:32 +0200
 Subject: [PATCH 3/5] Disable testing as it depends on network connections

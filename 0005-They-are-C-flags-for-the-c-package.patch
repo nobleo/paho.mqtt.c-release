@@ -1,4 +1,4 @@
-From 7fc951d7aee66a464492b41d5eed41bc770bf6ca Mon Sep 17 00:00:00 2001
+From b9633d0ad80b80372becf2890ed7dd48864430c2 Mon Sep 17 00:00:00 2001
 From: Tim Clephas <tim.clephas@nobleo.nl>
 Date: Wed, 2 Jun 2021 09:16:23 +0200
 Subject: [PATCH 5/5] They are C flags for the c package
