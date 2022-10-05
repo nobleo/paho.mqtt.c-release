@@ -1,4 +1,4 @@
-From 77e0602f6060d86b76f7a6220d9480f04af90c9d Mon Sep 17 00:00:00 2001
+From d3087326802157317e4bb310234003331346462d Mon Sep 17 00:00:00 2001
 From: Tim Clephas <tim.clephas@nobleo.nl>
 Date: Fri, 28 May 2021 16:03:32 +0200
 Subject: [PATCH 3/5] Disable testing as it depends on network connections
@@ -8,18 +8,18 @@ Subject: [PATCH 3/5] Disable testing as it depends on network connections
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/debian/rules.em b/debian/rules.em
-index 11efbd2..820a3bc 100755
+index 4a6f8e3..3a8fcfa 100755
 --- a/debian/rules.em
 +++ b/debian/rules.em
-@@ -22,7 +22,7 @@ export DEB_CXXFLAGS_MAINT_APPEND=-DNDEBUG
+@@ -25,7 +25,7 @@ endif
  export DEB_HOST_MULTIARCH := $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
  
  # Build with ssl
 -DEB_CXXFLAGS_MAINT_APPEND += -DPAHO_WITH_SSL=ON
 +DEB_CXXFLAGS_MAINT_APPEND += -DPAHO_WITH_SSL=ON -PAHO_ENABLE_TESTING=OFF
  
- %:
- 	dh $@@ -v --buildsystem=cmake
+ DEB_HOST_GNU_TYPE ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
+ 
 -- 
 2.25.1
 

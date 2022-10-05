@@ -1,4 +1,4 @@
-From 814b20dbee873a74686273337d5eba812ba794ca Mon Sep 17 00:00:00 2001
+From adc0d5a2d97beecc467ecae16fee43e50a892501 Mon Sep 17 00:00:00 2001
 From: Tim Clephas <tim.clephas@nobleo.nl>
 Date: Tue, 11 May 2021 10:35:34 +0200
 Subject: [PATCH 1/5] Build with ssl
@@ -8,19 +8,19 @@ Subject: [PATCH 1/5] Build with ssl
  1 file changed, 3 insertions(+)
 
 diff --git a/debian/rules.em b/debian/rules.em
-index 3342408..11efbd2 100755
+index 284a071..4a6f8e3 100755
 --- a/debian/rules.em
 +++ b/debian/rules.em
-@@ -21,6 +21,9 @@ export DEB_CXXFLAGS_MAINT_APPEND=-DNDEBUG
+@@ -24,6 +24,9 @@ endif
  # Solve shlibdeps errors in REP136 packages that use GNUInstallDirs:
  export DEB_HOST_MULTIARCH := $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
  
 +# Build with ssl
 +DEB_CXXFLAGS_MAINT_APPEND += -DPAHO_WITH_SSL=ON
 +
- %:
- 	dh $@@ -v --buildsystem=cmake
+ DEB_HOST_GNU_TYPE ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
  
+ %:
 -- 
 2.25.1
 
