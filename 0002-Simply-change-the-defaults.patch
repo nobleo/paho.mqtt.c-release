@@ -1,4 +1,4 @@
-From 1b94b341b3fde08ebe1f44cf226bd148478927f6 Mon Sep 17 00:00:00 2001
+From 96deb7ceed3efe78dc95d5d20a49842545d165de Mon Sep 17 00:00:00 2001
 From: Tim Clephas <tim.clephas@nobleo.nl>
 Date: Tue, 24 Aug 2021 13:22:11 +0200
 Subject: [PATCH 2/2] Simply change the defaults
@@ -8,10 +8,10 @@ Subject: [PATCH 2/2] Simply change the defaults
  1 file changed, 4 insertions(+), 2 deletions(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 7bfee10..f7d1ed5 100644
+index cf0fd68..1be25f1 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -47,13 +47,13 @@ ELSEIF(${CMAKE_SYSTEM_NAME} STREQUAL "Darwin")
+@@ -43,17 +43,19 @@ ELSEIF(${CMAKE_SYSTEM_NAME} STREQUAL "Darwin")
  ENDIF()
  
  ## build options
@@ -25,17 +25,14 @@ index 7bfee10..f7d1ed5 100644
 -SET(PAHO_ENABLE_TESTING TRUE CACHE BOOL "Build tests and run")
 +SET(PAHO_ENABLE_TESTING FALSE CACHE BOOL "Build tests and run")
  SET(PAHO_ENABLE_CPACK TRUE CACHE BOOL "Enable CPack")
- 
- IF (NOT PAHO_BUILD_SHARED AND NOT PAHO_BUILD_STATIC)
-@@ -106,6 +106,8 @@ SET(CPACK_PACKAGE_VERSION_MINOR ${PAHO_VERSION_MINOR})
- SET(CPACK_PACKAGE_VERSION_PATCH ${PAHO_VERSION_PATCH})
- INCLUDE(CPack)
+ SET(PAHO_HIGH_PERFORMANCE FALSE CACHE BOOL "Disable tracing and heap tracking")
+ SET(PAHO_USE_SELECT FALSE CACHE BOOL "Revert to select system call instead of poll")
  
 +INSTALL(FILES "${CMAKE_CURRENT_SOURCE_DIR}/package.xml" DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/${PROJECT_NAME})
 +
- IF(PAHO_ENABLE_TESTING)
-     ENABLE_TESTING()
-     INCLUDE_DIRECTORIES(test src)
+ IF (PAHO_HIGH_PERFORMANCE)
+   ADD_DEFINITIONS(-DHIGH_PERFORMANCE=1)
+ ENDIF()
 -- 
 2.25.1
 
