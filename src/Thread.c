@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2021 IBM Corp. and Ian Craggs
+ * Copyright (c) 2009, 2022 IBM Corp. and Ian Craggs
  *
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v2.0
@@ -77,6 +77,32 @@ void Thread_start(thread_fn fn, void* parameter)
 	pthread_attr_destroy(&attr);
 #endif
 	FUNC_EXIT;
+}
+
+
+int Thread_set_name(const char* thread_name)
+{
+	int rc = 0;
+	FUNC_ENTRY;
+
+#if defined(_WIN32) || defined(_WIN64)
+#if defined(_MSC_VER) && _MSC_VER >= 1920
+	rc = (int)SetThreadDescription(GetCurrentThread(), (PCWSTR)thread_name);
+#endif
+#elif defined(OSX)
+	// pthread_setname_np __API_AVAILABLE(macos(10.6), ios(3.2))
+#if defined(__APPLE__) && __MAC_OS_X_VERSION_MIN_REQUIRED >= MAC_OS_X_VERSION_10_6
+	rc = pthread_setname_np(thread_name);
+#endif
+#else
+#if defined(__GNUC__) && defined(__linux__)
+#if __GLIBC__ >= 2 && __GLIBC_MINOR__ >= 12
+	rc = pthread_setname_np(Thread_getid(), thread_name);
+#endif
+#endif
+#endif
+	FUNC_EXIT_RC(rc);
+	return rc;
 }
 
 
@@ -403,25 +429,37 @@ int Thread_signal_cond(cond_type condvar)
 }
 
 /**
- * Wait with a timeout (seconds) for condition variable
+ * Wait with a timeout (ms) for condition variable
  * @return 0 for success, ETIMEDOUT otherwise
  */
-int Thread_wait_cond(cond_type condvar, int timeout)
+int Thread_wait_cond(cond_type condvar, int timeout_ms)
 {
 	int rc = 0;
 	struct timespec cond_timeout;
+	struct timespec interval;
 
 	FUNC_ENTRY;
+	interval.tv_sec = timeout_ms / 1000;
+	interval.tv_nsec = (timeout_ms % 1000) * 1000000L;
+
 #if defined(__APPLE__) && __MAC_OS_X_VERSION_MIN_REQUIRED < 101200 /* for older versions of MacOS */
 	struct timeval cur_time;
     gettimeofday(&cur_time, NULL);
-    cond_timeout.tv_sec = cur_time.tv_sec + timeout;
+    cond_timeout.tv_sec = cur_time.tv_sec;
     cond_timeout.tv_nsec = cur_time.tv_usec * 1000;
 #else
 	clock_gettime(CLOCK_REALTIME, &cond_timeout);
-
-	cond_timeout.tv_sec += timeout;
 #endif
+
+	cond_timeout.tv_sec += interval.tv_sec;
+	cond_timeout.tv_nsec += (timeout_ms % 1000) * 1000000L;
+
+	if (cond_timeout.tv_nsec >= 1000000000L)
+	{
+		cond_timeout.tv_sec++;
+		cond_timeout.tv_nsec += (cond_timeout.tv_nsec - 1000000000L);
+	}
+
 	pthread_mutex_lock(&condvar->mutex);
 	rc = pthread_cond_timedwait(&condvar->cond, &condvar->mutex, &cond_timeout);
 	pthread_mutex_unlock(&condvar->mutex);
