@@ -1,3 +1,26 @@
+## paho-mqtt-c (foxy) - 1.3.12-1
+
+The packages in the `paho-mqtt-c` repository were released into the `foxy` distro by running `/usr/bin/bloom-release paho-mqtt-c -r foxy` on `Sun, 19 Feb 2023 09:49:50 -0000`
+
+The `paho-mqtt-c` package was released.
+
+Version of package(s) in repository `paho-mqtt-c`:
+
+- upstream repository: https://github.com/eclipse/paho.mqtt.c.git
+- release repository: https://github.com/nobleo/paho.mqtt.c-release.git
+- rosdistro version: `1.3.11-1`
+- old version: `1.3.11-1`
+- new version: `1.3.12-1`
+
+Versions of tools used:
+
+- bloom version: `0.11.2`
+- catkin_pkg version: `0.5.2`
+- rosdep version: `0.22.1`
+- rosdistro version: `0.9.0`
+- vcstools version: `0.1.42`
+
+
 ## paho-mqtt-c (noetic) - 1.3.12-1
 
 The packages in the `paho-mqtt-c` repository were released into the `noetic` distro by running `/usr/bin/bloom-release paho-mqtt-c -r noetic` on `Sun, 19 Feb 2023 09:42:00 -0000`
