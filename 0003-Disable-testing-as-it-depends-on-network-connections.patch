@@ -1,4 +1,4 @@
-From d3087326802157317e4bb310234003331346462d Mon Sep 17 00:00:00 2001
+From da0b4984e488e4e24928758992c3bce33cf6c692 Mon Sep 17 00:00:00 2001
 From: Tim Clephas <tim.clephas@nobleo.nl>
 Date: Fri, 28 May 2021 16:03:32 +0200
 Subject: [PATCH 3/5] Disable testing as it depends on network connections
@@ -21,5 +21,5 @@ index 4a6f8e3..3a8fcfa 100755
  DEB_HOST_GNU_TYPE ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
  
 -- 
-2.25.1
+2.34.1
 

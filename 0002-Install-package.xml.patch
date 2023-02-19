@@ -1,4 +1,4 @@
-From e83047c66f7263d672e61c9c9532d4716f4f6b18 Mon Sep 17 00:00:00 2001
+From 25026be19b6df9a6670f2f32accb5fbaf7a85d18 Mon Sep 17 00:00:00 2001
 From: Tim Clephas <tim.clephas@nobleo.nl>
 Date: Tue, 11 May 2021 10:37:54 +0200
 Subject: [PATCH 2/5] Install package.xml
@@ -21,5 +21,5 @@ index 6d4009e..4b8b215 100644
      ENABLE_TESTING()
      INCLUDE_DIRECTORIES(test src)
 -- 
-2.25.1
+2.34.1
 

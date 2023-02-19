@@ -1,4 +1,4 @@
-From adc0d5a2d97beecc467ecae16fee43e50a892501 Mon Sep 17 00:00:00 2001
+From fb1d35713a6163d967a6b950e3308c251353da45 Mon Sep 17 00:00:00 2001
 From: Tim Clephas <tim.clephas@nobleo.nl>
 Date: Tue, 11 May 2021 10:35:34 +0200
 Subject: [PATCH 1/5] Build with ssl
@@ -22,5 +22,5 @@ index 284a071..4a6f8e3 100755
  
  %:
 -- 
-2.25.1
+2.34.1
 
