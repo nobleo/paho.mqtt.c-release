@@ -1,4 +1,4 @@
-From d950082455a807aef4af29e6a2143812d7dfccd3 Mon Sep 17 00:00:00 2001
+From 452511daaa3c2a6d3a0d4669209648e2f34f6a83 Mon Sep 17 00:00:00 2001
 From: Tim Clephas <tim.clephas@nobleo.nl>
 Date: Tue, 24 Aug 2021 12:35:52 +0200
 Subject: [PATCH 2/3] Skip test by overriding function
@@ -8,10 +8,10 @@ Subject: [PATCH 2/3] Skip test by overriding function
  1 file changed, 1 insertion(+), 6 deletions(-)
 
 diff --git a/debian/rules.em b/debian/rules.em
-index 17369a2..1aee4aa 100755
+index f9b4893..fd8da38 100755
 --- a/debian/rules.em
 +++ b/debian/rules.em
-@@ -44,12 +44,7 @@ override_dh_auto_build:
+@@ -49,12 +49,7 @@ override_dh_auto_build:
  	dh_auto_build
  
  override_dh_auto_test:
@@ -26,5 +26,5 @@ index 17369a2..1aee4aa 100755
  override_dh_shlibdeps:
  	# In case we're installing to a non-standard location, look for a setup.sh
 -- 
-2.25.1
+2.34.1
 
