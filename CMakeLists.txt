@@ -1,5 +1,5 @@
 #*******************************************************************************
-#  Copyright (c) 2015, 2020 logi.cals GmbH and others
+#  Copyright (c) 2015, 2023 logi.cals GmbH and others
 #
 #  All rights reserved. This program and the accompanying materials
 #  are made available under the terms of the Eclipse Public License v2.0
@@ -43,13 +43,14 @@ ELSEIF(${CMAKE_SYSTEM_NAME} STREQUAL "Darwin")
 ENDIF()
 
 ## build options
-SET(PAHO_WITH_SSL TRUE CACHE BOOL "Flag that defines whether to build ssl-enabled binaries too. ")
+SET(PAHO_WITH_SSL FALSE CACHE BOOL "Flag that defines whether to build ssl-enabled binaries too. ")
+SET(PAHO_WITH_LIBUUID FALSE CACHE BOOL "Flag that defines whether libuuid or a custom uuid implementation should be used")
 SET(PAHO_BUILD_SHARED TRUE CACHE BOOL "Build shared library")
 SET(PAHO_BUILD_STATIC FALSE CACHE BOOL "Build static library")
 SET(PAHO_BUILD_DOCUMENTATION FALSE CACHE BOOL "Create and install the HTML based API documentation (requires Doxygen)")
 SET(PAHO_BUILD_SAMPLES FALSE CACHE BOOL "Build sample programs")
 SET(PAHO_BUILD_DEB_PACKAGE FALSE CACHE BOOL "Build debian package")
-SET(PAHO_ENABLE_TESTING FALSE CACHE BOOL "Build tests and run")
+SET(PAHO_ENABLE_TESTING TRUE CACHE BOOL "Build tests and run")
 SET(PAHO_ENABLE_CPACK TRUE CACHE BOOL "Enable CPack")
 SET(PAHO_HIGH_PERFORMANCE FALSE CACHE BOOL "Disable tracing and heap tracking")
 SET(PAHO_USE_SELECT FALSE CACHE BOOL "Revert to select system call instead of poll")
@@ -62,8 +63,16 @@ IF (PAHO_USE_SELECT)
   ADD_DEFINITIONS(-DUSE_SELECT=1)
 ENDIF()
 
+IF (PAHO_WITH_LIBUUID)
+  ADD_DEFINITIONS(-DUSE_LIBUUID=1)
+ENDIF()
+
 IF (NOT PAHO_BUILD_SHARED AND NOT PAHO_BUILD_STATIC)
     MESSAGE(FATAL_ERROR "You must set either PAHO_BUILD_SHARED, PAHO_BUILD_STATIC, or both")
+ENDIF()
+
+IF (PAHO_BUILD_SAMPLES AND NOT PAHO_WITH_SSL)
+    MESSAGE(FATAL_ERROR "You must build with SSL to build the samples")
 ENDIF()
 
 IF(PAHO_BUILD_DEB_PACKAGE)
