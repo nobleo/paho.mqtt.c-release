@@ -1,4 +1,4 @@
-From a9d7f22f5852fb416bf00289df5a44bdeb2e8f33 Mon Sep 17 00:00:00 2001
+From 34fd559b192be958f3a4ce5d5b639179dc0b364b Mon Sep 17 00:00:00 2001
 From: Tim Clephas <tim.clephas@nobleo.nl>
 Date: Wed, 2 Jun 2021 09:16:23 +0200
 Subject: [PATCH 5/5] They are C flags for the c package
@@ -21,5 +21,5 @@ index c987a5b..88ee9e4 100755
  DEB_HOST_GNU_TYPE ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
  
 -- 
-2.34.1
+2.42.0
 

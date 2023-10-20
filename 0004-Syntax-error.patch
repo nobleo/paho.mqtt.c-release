@@ -1,4 +1,4 @@
-From 4fdcb58ac45367590882e82e699dd16d8f569423 Mon Sep 17 00:00:00 2001
+From 581c45a68bd54d6c1d18c6aa5a5119b153a1c892 Mon Sep 17 00:00:00 2001
 From: Tim Clephas <tim.clephas@nobleo.nl>
 Date: Mon, 31 May 2021 09:38:19 +0200
 Subject: [PATCH 4/5] Syntax error
@@ -21,5 +21,5 @@ index 3a8fcfa..c987a5b 100755
  DEB_HOST_GNU_TYPE ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
  
 -- 
-2.34.1
+2.42.0
 
