@@ -1,4 +1,4 @@
-From f2f31208007d12cd1e7749191bc62de60f1baf21 Mon Sep 17 00:00:00 2001
+From 2cb33cd18df9a37d4f3fe4154787b45b41c2fa5f Mon Sep 17 00:00:00 2001
 From: Tim Clephas <tim.clephas@nobleo.nl>
 Date: Thu, 3 Jun 2021 11:19:17 +0200
 Subject: [PATCH] Change defaults as flags don't get picked up
@@ -28,5 +28,5 @@ index cf0fd68..6d4009e 100644
  SET(PAHO_HIGH_PERFORMANCE FALSE CACHE BOOL "Disable tracing and heap tracking")
  SET(PAHO_USE_SELECT FALSE CACHE BOOL "Revert to select system call instead of poll")
 -- 
-2.34.1
+2.42.0
 
